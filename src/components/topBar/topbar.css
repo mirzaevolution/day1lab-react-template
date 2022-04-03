@@ -1,0 +1,35 @@
+.top-nav {
+  background-color: #3b82f6;
+  display: flex;
+  height: 48px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  color: white;
+}
+
+.top-nav-left {
+  align-self: center;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.top-nav-left .icon-header {
+  font-size: x-large;
+}
+
+.top-nav-middle{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-nav-middle a {
+  border: 1px solid transparent;
+  color: white;
+  text-decoration: none;
+}
+
+.top-nav-middle a:hover {
+    border-bottom: 1px solid white;
+  }
