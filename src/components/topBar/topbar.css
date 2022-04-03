@@ -14,6 +14,12 @@
   margin-left: 20px;
 }
 
+.top-nav-right {
+  align-self: center;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
 .top-nav-left .icon-header {
   font-size: x-large;
 }
@@ -22,6 +28,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 1;
 }
 
 .top-nav-middle a {

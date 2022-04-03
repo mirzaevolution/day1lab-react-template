@@ -1,6 +1,5 @@
-import axios from "axios";
-import { BASE_URL } from "../utils";
+import { BASE_URL, httpPublic } from "../utils";
 
 export const getUser = () => {
-    return axios.get(`${BASE_URL}/users`)
+    return httpPublic.get(`${BASE_URL}/users`)
 }

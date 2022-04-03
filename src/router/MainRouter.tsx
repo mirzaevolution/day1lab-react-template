@@ -1,11 +1,17 @@
 import React, { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import {SuspanseFallBackProps} from '../models';
-import { Layout } from '../pages'
+import { Callback, Layout } from '../pages'
+import { useAppDispatch } from '../redux/hook';
+import { setCurrentUser } from '../redux/Slices/MainSlice';
+import { userManagerConfig } from '../utils';
 
 const ListPage = lazy(() => import("../pages/list/ListSample"));
 const FormPage = lazy(() => import("../pages/form/FormSample"));
 const AxiosPage = lazy(() => import("../pages/fetch/FetchSample"));
+const Welcome = lazy(() => import("../pages/welcome/Welcome"));
+const FetchProtectedPage = lazy(() => import("../pages/fetchProtected/FetchProtected"));
+const PublicPage = lazy(() => import("../pages/publicPage/PublicPage"));
 
 const SuspanseFallBack: React.FC<SuspanseFallBackProps> = ({children}) => {
     return (
@@ -15,18 +21,37 @@ const SuspanseFallBack: React.FC<SuspanseFallBackProps> = ({children}) => {
 );
 }
 
-const MainRouter: React.FC = () => {
+export const MainRouter: React.FC = () => {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
-                <Route path="/" element={<SuspanseFallBack children={<ListPage/>}/>} />
-                <Route path="/list" element={<SuspanseFallBack children={<ListPage/>}/>} />
-                <Route path="/form" element={<SuspanseFallBack children={<FormPage/>}/>} />
-                <Route path="/fetch" element={<SuspanseFallBack children={<AxiosPage/>}/>} />
+                <Route path="/" element={<SuspanseFallBack children={<RequireAuth><ListPage/></RequireAuth>}/>} />
+                <Route path="/list" element={<SuspanseFallBack children={<RequireAuth><ListPage/></RequireAuth>}/>} />
+                <Route path="/form" element={<SuspanseFallBack children={<RequireAuth><FormPage/></RequireAuth>}/>} />
+                <Route path="/fetch" element={<SuspanseFallBack children={<RequireAuth><AxiosPage/></RequireAuth>}/>} />
+                <Route path="/fetch-protected" element={<SuspanseFallBack children={<RequireAuth><FetchProtectedPage/></RequireAuth>}/>} />
             </Route>
-            <Route path="/login" element={<div>Login Page</div>}></Route>
+            <Route path="/signin-oidc" element={<Callback isCallbackLogout={false} />} />
+            <Route path="/signout-oidc" element={<Callback isCallbackLogout={true} />} />
+            <Route path="/welcome" element={<SuspanseFallBack children={<Welcome />} />} />
+            <Route path="/public-page" element={<SuspanseFallBack children={<PublicPage />} />} />
         </Routes>
     )
 }
 
-export default MainRouter
+const RequireAuth = ({ children }: { children: JSX.Element }) => {
+    let location = useLocation();
+    const dispatch = useAppDispatch()
+
+    const storageAuthKey = `oidc.user:${userManagerConfig.authority}:${userManagerConfig.client_id}`
+    const item = sessionStorage.getItem(storageAuthKey) ?? "";
+    if (!item) {
+        return <Navigate to="/welcome" state={{ from: location }} replace />;
+    }else{
+        const parseToken = JSON.parse(item)
+        const token = parseToken.access_token
+        dispatch(setCurrentUser(token))
+    }
+
+    return children;
+}

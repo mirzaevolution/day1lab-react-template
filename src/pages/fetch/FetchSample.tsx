@@ -9,7 +9,7 @@ const FetchSample: React.FC = () => {
     const userdatas = useAppSelector((state:RootState) => state.main.userData)
     useEffect(() => {
         dispatch(getUsers())
-    }, [])
+    }, [dispatch])
 
     return (
         <UserList datas={userdatas}/>

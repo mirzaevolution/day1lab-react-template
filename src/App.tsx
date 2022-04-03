@@ -1,10 +1,13 @@
 import React from 'react';
+import { AuthProvider } from 'react-oidc-context';
 import { MainRouter } from './router';
-import { UseTranslationHook } from './utils';
+import { userManagerConfig, UseTranslationHook } from './utils';
 
 export const App: React.FunctionComponent = () => {
   UseTranslationHook()
   return (
-    <MainRouter/>
+    <AuthProvider {...userManagerConfig}>
+      <MainRouter />
+    </AuthProvider>
   );
 };

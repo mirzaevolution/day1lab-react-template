@@ -1,9 +1,19 @@
 {
     "List": "List",
     "Form": "Form",
+    "Name": "Name",
     "First Name": "First Name",
     "Last Name": "Last Name",
     "Address": "Address",
     "This Field is Required": "This Field is Required",
-    "Create":"Create"
+    "Create":"Create",
+    "Fetch":"Fetch Public",
+    "Fetch Protected":"Fetch Protected",
+    "Fetch Data":"Fetch Data",
+    "Post Data":"Post Data",
+    "Login":"Login",
+    "Disconnected from identity serve":"Disconnected from identity serve",
+    "Welcome screen":"Welcome screen",
+    "Logout" :"Logout",
+    "This is a sample public page" : "This is a sample public page"
 }

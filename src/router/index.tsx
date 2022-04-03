@@ -1,5 +1,1 @@
-import MainRouter from "./MainRouter";
-
-export{
-    MainRouter
-}
+export * from "./MainRouter"
