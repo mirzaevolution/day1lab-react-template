@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { Label, PrimaryButton, TextField } from '@fluentui/react';
 import { getErrorMessageFormik } from '../../utils';
 import { useAppDispatch } from '../../redux/hook';
-import { setFormData } from '../../redux/Slices/MainSlice';
+import { setFormData } from '../../redux/slices/MainSlice';
 import { GuestModel } from '../../models';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';

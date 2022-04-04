@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { UserList } from '../../components'
 import { useAppDispatch, useAppSelector } from '../../redux/hook'
-import { getUsers } from '../../redux/Slices/MainSlice'
+import { getUsers } from '../../redux/slices/MainSlice'
 import { RootState } from '../../redux/store'
 
 const FetchSample: React.FC = () => {

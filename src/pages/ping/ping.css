@@ -1,0 +1,19 @@
+.ping-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ping-content {
+    flex: 1;
+    text-align: center;
+}
+
+.ping-response {
+    background: black;
+    color: lime;
+    margin: 5px 50px 50px 50px;
+    border-radius: 20px;
+    min-height: 100%;
+    text-align: start;
+    padding: 20px;
+}

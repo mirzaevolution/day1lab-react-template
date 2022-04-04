@@ -9,7 +9,7 @@ import "./topbar.css"
 
 const TopBar: React.FC = () => {
     const { t } = useTranslation();
-    const currentUser = useAppSelector((state:RootState) => state.main.currentUser)
+    const currentUser = useAppSelector((state: RootState) => state.main.currentUser)
 
     const onLogout = () => {
         signoutRedirect()
@@ -35,8 +35,9 @@ const TopBar: React.FC = () => {
                 </span>
             </div>
             <div className="top-nav-right">
-                <div>{currentUser?.name} &nbsp;
-                <span onClick={onLogout} style={{cursor:"pointer"}}>( {t("Logout")} )</span></div>
+                {currentUser &&
+                    <div>{currentUser?.name} &nbsp;<span onClick={onLogout} style={{ cursor: "pointer" }}>( {t("Logout")} )</span></div>
+                }
             </div>
         </div>
     )

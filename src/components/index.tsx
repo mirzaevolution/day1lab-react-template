@@ -1,5 +1,5 @@
-import TopBar from './topBar/TopBar'
-import UserList from './UserList/UserList'
+import TopBar from './topbar/TopBar'
+import UserList from './userlist/UserList'
 
 export{
     TopBar,

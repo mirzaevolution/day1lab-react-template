@@ -3,7 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import {SuspanseFallBackProps} from '../models';
 import { Callback, Layout } from '../pages'
 import { useAppDispatch } from '../redux/hook';
-import { setCurrentUser } from '../redux/Slices/MainSlice';
+import { setCurrentUser } from '../redux/slices/MainSlice';
 import { userManagerConfig } from '../utils';
 
 const ListPage = lazy(() => import("../pages/list/ListSample"));
@@ -12,6 +12,7 @@ const AxiosPage = lazy(() => import("../pages/fetch/FetchSample"));
 const Welcome = lazy(() => import("../pages/welcome/Welcome"));
 const FetchProtectedPage = lazy(() => import("../pages/fetchProtected/FetchProtected"));
 const PublicPage = lazy(() => import("../pages/publicPage/PublicPage"));
+const PingPage = lazy(() => import("../pages/ping/Ping"));
 
 const SuspanseFallBack: React.FC<SuspanseFallBackProps> = ({children}) => {
     return (
@@ -30,6 +31,7 @@ export const MainRouter: React.FC = () => {
                 <Route path="/form" element={<SuspanseFallBack children={<RequireAuth><FormPage/></RequireAuth>}/>} />
                 <Route path="/fetch" element={<SuspanseFallBack children={<RequireAuth><AxiosPage/></RequireAuth>}/>} />
                 <Route path="/fetch-protected" element={<SuspanseFallBack children={<RequireAuth><FetchProtectedPage/></RequireAuth>}/>} />
+                <Route path="/ping" element={<SuspanseFallBack children={<PingPage/>}/>} />
             </Route>
             <Route path="/signin-oidc" element={<Callback isCallbackLogout={false} />} />
             <Route path="/signout-oidc" element={<Callback isCallbackLogout={true} />} />
