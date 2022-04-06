@@ -1,8 +1,8 @@
-import SuspanseFallBackProps from "./SuspanseFallBackProps";
-import GuestModel from "./GuestModel";
-import UserModel from "./UserModel";
-import PingResponse from "./PingResponse";
-import BaseResponse from "./BaseResponse";
+import SuspanseFallBackProps from "./suspansefallbackprops.model";
+import GuestModel from "./guest.model";
+import UserModel from "./user.model";
+import PingResponse from "./ping-response.model";
+import BaseResponse from "./base-response.model";
 
 export type {
     SuspanseFallBackProps,

@@ -1,5 +1,5 @@
 import * as CryptoJS from 'crypto-js';
-import { SecurityPipeline } from '../constant/SecurityContants';
+import { SecurityPipeline } from '../constant/security.contants';
 
 const base64Parse = (value: string): CryptoJS.lib.WordArray => {
   return CryptoJS.enc.Base64.parse(value);

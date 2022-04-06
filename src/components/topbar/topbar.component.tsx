@@ -2,10 +2,10 @@ import { Icon } from '@fluentui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { useAppSelector } from '../../redux/hook'
-import { RootState } from '../../redux/store'
+import { useAppSelector } from '../../reduxs/hook'
+import { RootState } from '../../reduxs/store'
 import { signoutRedirect } from '../../utils'
-import "./topbar.css"
+import "./topbar.component.css"
 
 const TopBar: React.FC = () => {
     const { t } = useTranslation();
@@ -28,10 +28,7 @@ const TopBar: React.FC = () => {
                     <Link to={"/form"}>{t("Form")}</Link>
                 </span>
                 <span>
-                    <Link to={"/fetch"}>{t("Fetch")}</Link>
-                </span>
-                <span>
-                    <Link to={"/fetch-protected"}>{t("Fetch Protected")}</Link>
+                    <Link to={"/ping"}>{t("Fetch")}</Link>
                 </span>
             </div>
             <div className="top-nav-right">

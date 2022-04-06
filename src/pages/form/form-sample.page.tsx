@@ -1,11 +1,11 @@
 import { Formik } from 'formik';
 import React from 'react'
-import "./formSample.css"
+import "./form-sample.page.css"
 import * as Yup from 'yup';
 import { Label, PrimaryButton, TextField } from '@fluentui/react';
 import { getErrorMessageFormik } from '../../utils';
-import { useAppDispatch } from '../../redux/hook';
-import { setFormData } from '../../redux/slices/MainSlice';
+import { useAppDispatch } from '../../reduxs/hook';
+import { setFormData } from '../../reduxs/slices/main.slice';
 import { GuestModel } from '../../models';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';

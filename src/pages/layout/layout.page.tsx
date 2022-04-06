@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { TopBar } from '../../components'
-import "./layout.css"
+import "./layout.page.css"
 
 const Layout: React.FC = () => {
   return (

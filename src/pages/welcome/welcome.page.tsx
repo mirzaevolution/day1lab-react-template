@@ -2,7 +2,7 @@ import { PrimaryButton } from '@fluentui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { signinRedirect } from '../../utils'
-import "./welcome.css"
+import "./welcome.page.css"
 
 const Welcome: React.FC = () => {
   const { t } = useTranslation()

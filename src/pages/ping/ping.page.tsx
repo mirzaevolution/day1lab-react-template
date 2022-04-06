@@ -2,7 +2,7 @@ import { DefaultButton, PrimaryButton } from '@fluentui/react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getEncryptedPing, postEncryptedPing } from '../../services'
-import "./ping.css"
+import "./ping.page.css"
 
 const Ping: React.FC = () => {
     const { t } = useTranslation()

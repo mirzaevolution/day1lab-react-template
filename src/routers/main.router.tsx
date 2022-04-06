@@ -2,17 +2,15 @@ import React, { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import {SuspanseFallBackProps} from '../models';
 import { Callback, Layout } from '../pages'
-import { useAppDispatch } from '../redux/hook';
-import { setCurrentUser } from '../redux/slices/MainSlice';
+import { useAppDispatch } from '../reduxs/hook';
+import { setCurrentUser } from '../reduxs/slices/main.slice';
 import { userManagerConfig } from '../utils';
 
-const ListPage = lazy(() => import("../pages/list/ListSample"));
-const FormPage = lazy(() => import("../pages/form/FormSample"));
-const AxiosPage = lazy(() => import("../pages/fetch/FetchSample"));
-const Welcome = lazy(() => import("../pages/welcome/Welcome"));
-const FetchProtectedPage = lazy(() => import("../pages/fetchProtected/FetchProtected"));
-const PublicPage = lazy(() => import("../pages/publicPage/PublicPage"));
-const PingPage = lazy(() => import("../pages/ping/Ping"));
+const ListPage = lazy(() => import("../pages/list/list-sample.page"));
+const FormPage = lazy(() => import("../pages/form/form-sample.page"));
+const Welcome = lazy(() => import("../pages/welcome/welcome.page"));
+const PublicPage = lazy(() => import("../pages/public-page/public.page"));
+const PingPage = lazy(() => import("../pages/ping/ping.page"));
 
 const SuspanseFallBack: React.FC<SuspanseFallBackProps> = ({children}) => {
     return (
@@ -29,9 +27,7 @@ export const MainRouter: React.FC = () => {
                 <Route path="/" element={<SuspanseFallBack children={<RequireAuth><ListPage/></RequireAuth>}/>} />
                 <Route path="/list" element={<SuspanseFallBack children={<RequireAuth><ListPage/></RequireAuth>}/>} />
                 <Route path="/form" element={<SuspanseFallBack children={<RequireAuth><FormPage/></RequireAuth>}/>} />
-                <Route path="/fetch" element={<SuspanseFallBack children={<RequireAuth><AxiosPage/></RequireAuth>}/>} />
-                <Route path="/fetch-protected" element={<SuspanseFallBack children={<RequireAuth><FetchProtectedPage/></RequireAuth>}/>} />
-                <Route path="/ping" element={<SuspanseFallBack children={<PingPage/>}/>} />
+                <Route path="/ping" element={<SuspanseFallBack children={<RequireAuth><PingPage/></RequireAuth>}/>} />
             </Route>
             <Route path="/signin-oidc" element={<Callback isCallbackLogout={false} />} />
             <Route path="/signout-oidc" element={<Callback isCallbackLogout={true} />} />

@@ -1,1 +1,1 @@
-export * from "./MainRouter"
+export * from "./main.router"

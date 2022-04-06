@@ -1,5 +1,5 @@
-import TopBar from './topbar/TopBar'
-import UserList from './userlist/UserList'
+import TopBar from './topbar/topbar.component'
+import UserList from './user-list/user-list.component'
 
 export{
     TopBar,

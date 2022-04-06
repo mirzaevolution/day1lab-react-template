@@ -7,7 +7,7 @@ import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import { BrowserRouter } from 'react-router-dom';
 import "./index.css"
 import { Provider } from 'react-redux'
-import { store } from './redux/store';
+import { store } from './reduxs/store';
 
 // Inject some global styles
 mergeStyles({
