@@ -3,12 +3,12 @@ import React from 'react'
 import "./form-sample.page.css"
 import * as Yup from 'yup';
 import { Label, PrimaryButton, TextField } from '@fluentui/react';
-import { getErrorMessageFormik } from '../../utils';
 import { useAppDispatch } from '../../reduxs/hook';
 import { setFormData } from '../../reduxs/slices/main.slice';
 import { GuestModel } from '../../models';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { EtcHelpersInit } from '../../utils';
 
 const FormSample: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -46,7 +46,7 @@ const FormSample: React.FC = () => {
                         <TextField
                           onBlur={formik.handleBlur}
                           id='firstName'
-                          errorMessage={getErrorMessageFormik(formik.touched.firstName, formik.errors.firstName)}
+                          errorMessage={EtcHelpersInit.getErrorMessageFormik(formik.touched.firstName, formik.errors.firstName)}
                           onChange={formik.handleChange}
                           name='firstName' />
                       </div>
@@ -59,7 +59,7 @@ const FormSample: React.FC = () => {
                         <TextField
                           onBlur={formik.handleBlur}
                           id='lastName'
-                          errorMessage={getErrorMessageFormik(formik.touched.lastName, formik.errors.lastName)}
+                          errorMessage={EtcHelpersInit.getErrorMessageFormik(formik.touched.lastName, formik.errors.lastName)}
                           onChange={formik.handleChange}
                           name='lastName' />
                       </div>
@@ -72,7 +72,7 @@ const FormSample: React.FC = () => {
                         <TextField multiline
                           onBlur={formik.handleBlur}
                           id='address'
-                          errorMessage={getErrorMessageFormik(formik.touched.address, formik.errors.address)}
+                          errorMessage={EtcHelpersInit.getErrorMessageFormik(formik.touched.address, formik.errors.address)}
                           onChange={formik.handleChange}
                           name='address' />
                       </div>

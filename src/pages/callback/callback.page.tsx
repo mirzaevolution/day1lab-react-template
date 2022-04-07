@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { signinRedirectCallback, signoutRedirectCallback, userManager } from '../../utils';
+import { AuthManagerInit } from '../../utils';
 
 interface Props {
     isCallbackLogout: boolean
@@ -8,11 +8,11 @@ interface Props {
 const Callback: React.FC<Props> = ({ isCallbackLogout }) => {
     useEffect(() => {
         if (isCallbackLogout) {
-            signoutRedirectCallback().then(user => {
-                userManager.signinRedirect()
+            AuthManagerInit.signoutRedirectCallback().then(user => {
+                AuthManagerInit.signinRedirect()
             }).catch(error => console.log(error))
         } else {
-            signinRedirectCallback().then(user => {
+            AuthManagerInit.signinRedirectCallback().then(user => {
                 window.location.href = "/"
             }).catch(error => console.log(error))
         }

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../../reduxs/hook'
 import { RootState } from '../../reduxs/store'
-import { signoutRedirect } from '../../utils'
+import { AuthManagerInit } from '../../utils'
 import "./topbar.component.css"
 
 const TopBar: React.FC = () => {
@@ -12,7 +12,7 @@ const TopBar: React.FC = () => {
     const currentUser = useAppSelector((state: RootState) => state.main.currentUser)
 
     const onLogout = () => {
-        signoutRedirect()
+        AuthManagerInit.signoutRedirect()
     }
 
     return (
@@ -33,7 +33,7 @@ const TopBar: React.FC = () => {
             </div>
             <div className="top-nav-right">
                 {currentUser &&
-                    <div>{currentUser?.name} &nbsp;<span onClick={onLogout} style={{ cursor: "pointer" }}>( {t("Logout")} )</span></div>
+                    <div>{currentUser?.name} &nbsp;<span onClick={() => onLogout()} style={{ cursor: "pointer" }}>( {t("Logout")} )</span></div>
                 }
             </div>
         </div>

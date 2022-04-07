@@ -1,14 +1,14 @@
 import { PrimaryButton } from '@fluentui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { signinRedirect } from '../../utils'
+import { AuthManagerInit } from '../../utils'
 import "./welcome.page.css"
 
 const Welcome: React.FC = () => {
   const { t } = useTranslation()
 
   const loginRedirect = () => {
-    signinRedirect().catch((err) => {
+    AuthManagerInit.signinRedirect().catch((err) => {
       alert(t("Disconnected from identity server"))
     })
   }

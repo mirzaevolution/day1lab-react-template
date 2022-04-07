@@ -1,12 +1,19 @@
+import { AxiosInstance } from "axios";
 import { PingResponse } from "../models";
-import { API_GATEWAY_BASE_URL, http } from "../utils";
+import { API_GATEWAY_BASE_URL, HttpClient } from "../utils";
 
-export const getEncryptedPing = () => {
-    const url = `${API_GATEWAY_BASE_URL}/v1/ping`
-    return http.get<PingResponse>(url);
+export class MainService {
+    private _http:AxiosInstance = new HttpClient().http;
+
+    getEncryptedPing = ():Promise<any> => {
+        const url = `${API_GATEWAY_BASE_URL}/v1/ping`
+        return this._http.get<PingResponse>(url);
+    }
+
+    postEncryptedPing = (message: string):Promise<any> => {
+        const url = `${API_GATEWAY_BASE_URL}/v1/ping`
+        return this._http.post<PingResponse>(url, { message });
+    }
 }
 
-export const postEncryptedPing = (message: string) => {
-    const url = `${API_GATEWAY_BASE_URL}/v1/ping`
-    return http.post<PingResponse>(url, { message });
-}
+export const MainServiceInit = new MainService();
