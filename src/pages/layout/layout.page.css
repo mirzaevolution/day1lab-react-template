@@ -3,15 +3,15 @@
     flex-direction: column;
   }
   
-  .container__main {
+  .container-main {
     flex-grow: 1;
     flex-direction: row;
   }
-  .container__middle {
+  .container-middle {
     flex-grow: 1;
   }
 
-  .container__main{
+  .container-main{
     margin: 30px;
   }
   

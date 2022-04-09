@@ -33,7 +33,7 @@ const FormSample: React.FC = () => {
     >
       {
         formik => (
-          <div className='listsample'>
+          <div className='list-sample'>
             <div className="ms-Grid" style={{ width: "40%" }} dir="ltr">
               <form id='form-engagement' onSubmit={formik.handleSubmit} style={{ marginTop: "13px" }}>
                 <div className="ms-Grid-row">

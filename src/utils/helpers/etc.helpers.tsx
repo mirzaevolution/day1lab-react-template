@@ -14,6 +14,12 @@ export class EtcHelpers {
     getErrorMessageFormik = (isTouched?: boolean, value?: string): string => {
         return (isTouched ?? false) ? value ?? "" : "";
     }
+
+    convertObjecKeyFirstCharToLower = (data: object): any => {
+        let entries = Object.entries(data);
+        let capsEntries = entries.map((entry) => [entry[0][0].toLocaleLowerCase() + entry[0].slice(1), entry[1]]);
+        return Object.fromEntries(capsEntries);
+    }
 }
 
 export const EtcHelpersInit = new EtcHelpers();

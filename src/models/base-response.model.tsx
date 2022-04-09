@@ -1,6 +1,6 @@
 export default interface BaseResponse {
-    IsSuccess: boolean;
-    IsEncrypted: boolean;
-    Errors: Array<string>;
-    Result?: any;
+    isSuccess: boolean;
+    isEncrypted: boolean;
+    errors: Array<string>;
+    result?: any;
 }

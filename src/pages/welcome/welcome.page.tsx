@@ -14,24 +14,13 @@ const Welcome: React.FC = () => {
   }
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      height: "100%"
-    }}>
-      <div style={{ flex: 1, alignSelf: "center", textAlign: "center" }}>
+    <div className='welcome-container'>
+      <div className='welcome-text'>
         <h1>{t('Welcome Screen')}</h1>
         <PrimaryButton onClick={loginRedirect} text={t('Login')} />
       </div>
       <div style={{ padding: 20, flex: 1 }}>
-        <img alt='-' style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: 20,
-          boxShadow: "1px 4px 24px 0px rgba(0,0,0,0.75)"
-        }} src='https://picsum.photos/500/800' />
+        <img alt='-' src='https://picsum.photos/500/800' />
       </div>
     </div>
   )

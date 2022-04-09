@@ -7,9 +7,9 @@ const Layout: React.FC = () => {
   return (
     <div className="container">
       <TopBar />
-      <main className="container__main">
-        <article className="container__middle">
-          <div className="container__main">
+      <main className="container-main">
+        <article className="container-middle">
+          <div className="container-main">
             <Outlet />
           </div>
         </article>

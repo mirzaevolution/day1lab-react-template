@@ -1,6 +1,7 @@
 import { DefaultButton, PrimaryButton } from '@fluentui/react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { PingResponse } from '../../models'
 import { MainServiceInit } from '../../services'
 import "./ping.page.css"
 
@@ -12,15 +13,15 @@ const Ping: React.FC = () => {
 
     const onPostData = () => {
         const message = `Hello from React JS ${new Date().toISOString()}`;
-        MainServiceInit.postEncryptedPing(message).then((res: any) => {
-            const data = res.Result;
+        MainServiceInit.postEncryptedPing(message).then((res: PingResponse) => {
+            const data = res.result;
             setPostResponse(data)
         })
     }
 
     const onGetData = () => {
-        MainServiceInit.getEncryptedPing().then((res: any) => {
-            const data = res.Result;
+        MainServiceInit.getEncryptedPing().then((res: PingResponse) => {
+            const data = res.result;
             setGetResponse(data)
         })
     }
